@@ -42,7 +42,10 @@ namespace GraMemory
             Possition = possition;
             isActive = false;
             isVisible = false;
-            //Numer.Text = no.ToString();
+            if (GameHandler.GameType == GameType.number)
+            {
+                Numer.Text = no.ToString();
+            }           
         }
 
         private async void Color_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -55,15 +58,32 @@ namespace GraMemory
             }
         }
 
+        Random rand = new Random();
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            Random rand = new Random();
-            byte r = (byte)rand.Next(0, 256);
-            byte g = (byte)rand.Next(0, 256);
-            byte b = (byte)rand.Next(0, 256);
+            
 
             MemBody = sender as Grid;
-            MemBody.Background = new SolidColorBrush(GameHandler.ColorsList[no]);
+            switch (GameHandler.GameType)
+            {
+                case GameType.memory:
+                    MemBody.Background = new SolidColorBrush(GameHandler.ColorsList[no]);
+                    break;
+                case GameType.number:
+                    
+                    byte r = (byte)rand.Next(0, 256);
+                    byte g = (byte)rand.Next(0, 256);
+                    byte b = (byte)rand.Next(0, 256);
+                    MemBody.Background = new SolidColorBrush(Color.FromArgb(255, r,g,b));
+                    break;
+                case GameType.colors:
+                    int singl = 255 / (App.GamePage.VM.Level * 5 + 5);
+                    MemBody.Background = new SolidColorBrush(Color.FromArgb(255, 210, 57, Convert.ToByte(5+singl*no)));
+                    break;
+                default:
+                    break;
+            }
+            
         }
     }
 }

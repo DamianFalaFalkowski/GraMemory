@@ -31,7 +31,7 @@ namespace GraMemory
             InitializeComponent();            
         }
 
-        private async void Grid_Loaded(object sender, RoutedEventArgs e)
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             Grid send = sender as Grid;
             GameHandler.CreateGameHandler(send);
@@ -42,13 +42,7 @@ namespace GraMemory
             else
             {
                 send.Height = send.ActualWidth;
-            }
-            await GameHandler.StartGame(1);
-
-            //Mem mem = new Mem();
-            //MainGrid.Children.Add(mem);
-            //Grid.SetColumn(mem, 5);
-            //Grid.SetRow(mem, 5);
+            }          
         }
 
         private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -62,6 +56,21 @@ namespace GraMemory
             {
                 send.Height = send.ActualWidth;
             }
+        }        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            VM.MemoryStartCommand.Execute(null);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            VM.SpostrzegawczyStartCommand.Execute(null);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            VM.CyfryStartCommand.Execute(null);
         }
 
         

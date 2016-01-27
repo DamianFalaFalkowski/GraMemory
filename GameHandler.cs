@@ -13,6 +13,8 @@ namespace GraMemory
 {
     public static class GameHandler
     {
+        public static GameType GameType { get; set; }
+
         public static int Points { get { return App.GamePage.VM.Points; } set { App.GamePage.VM.Points = value; } }
 
         static Grid MainGrid { get; set; }
@@ -25,14 +27,35 @@ namespace GraMemory
 
         //public static int LevelNo { get; set; }
 
+        public static void ResetHandler()
+        {
+            GameType = new GameType();
+            Points = 0;
+            ActualMem = 0;
+            ActualLevel = null;
+
+        }
+
         public static void CreateGameHandler(Grid mainGrid)
         {
             MainGrid = mainGrid;
-            //LevelNo = 1;
             ActualMem = 0;
         }
 
-        public async static Task StartGame(int poziom)
+        public async static Task StartColorGame(int poziom)
+        {
+            ActualLevel = new Level(poziom);
+            MainGrid.Children.Clear();
+            for (int i = 0; i < ActualLevel.Possitions.Count; i++)
+            {
+                var item = ActualLevel.Possitions[i];
+                Mem mem = new Mem(item, i);
+                MainGrid.Children.Add(mem);
+            }
+            await ShowMems();
+        }
+
+        public async static Task StartMemoryGame(int poziom)
         {
 
             ActualLevel = new Level(poziom);
@@ -44,6 +67,19 @@ namespace GraMemory
                 MainGrid.Children.Add(mem);
             }
             await ShowMems();
+        }
+
+        public static void StartNumbersGame(int poziom)
+        {
+            ActualLevel = new Level(poziom);
+            MainGrid.Children.Clear();
+            for (int i = 0; i < ActualLevel.Possitions.Count; i++)
+            {
+                var item = ActualLevel.Possitions[i];
+                Mem mem = new Mem(item, i);
+                MainGrid.Children.Add(mem);
+            }
+            ShowMemsInstantly();
         }
 
         private async static Task ShowMems()
@@ -67,6 +103,27 @@ namespace GraMemory
             }
         }
 
+        private static void ShowMemsInstantly()
+        {
+            foreach (var item in MainGrid.Children)
+            {
+                if (item.GetType() == typeof(Mem))
+                {
+                    Mem mem = item as Mem;
+                    mem.isVisible = true;
+                   
+                }
+            }
+            foreach (var item in MainGrid.Children)
+            {
+                if (item.GetType() == typeof(Mem))
+                {
+                    Mem mem = item as Mem;
+                    mem.isActive = true;
+                }
+            }
+        }
+
         public async static Task CheckOrder(MemPossition memPos)
         {
             if (memPos.memX == ActualLevel.Possitions[ActualMem].memX &&
@@ -77,13 +134,14 @@ namespace GraMemory
             }
             else
             {                
-                MessageBox.Show("Koniec Gry");                              
+                MessageBox.Show("Koniec Gry");
+                          
             }
 
             if (ActualMem>=ActualLevel.Possitions.Count)
             {
                 ActualMem = 0;
-                await StartGame((ActualLevel.No+1));
+                await StartMemoryGame((ActualLevel.No+1));
             }
         }
 
@@ -133,4 +191,6 @@ namespace GraMemory
             Colors.OldLace
         };
     }
+
+    public enum GameType { memory, number, colors}
 }

@@ -19,11 +19,27 @@ namespace GraMemory.Model
         {
             App.GamePage.VM.Level = numer;
             No = numer;
-            Possitions = CreatePossitions();
+            switch (GameHandler.GameType)
+            {
+                case GameType.memory:
+                    Possitions = CreateMemoryPossitions();
+                    break;
+                case GameType.number:
+                    Possitions = CreateNumberPossitions();
+                    break;
+                case GameType.colors:
+                    Possitions = CreateColorPossitions();
+                    break;
+                default:
+                    break;
+            }
+            
         }
 
+        
+
         // stworz pozycje dla poziomu
-        private List<MemPossition> CreatePossitions()
+        private List<MemPossition> CreateMemoryPossitions()
         {
             List<MemPossition> pos = new List<MemPossition>() { };
             Random rnd = new Random();
@@ -31,6 +47,30 @@ namespace GraMemory.Model
             for (int i = 0; i < No+3; i++)
             {
                 AddSinglePossition(ref rnd, ref pos);                              
+            }
+            return pos;
+        }
+
+        private List<MemPossition> CreateColorPossitions()
+        {
+            List<MemPossition> pos = new List<MemPossition>() { };
+            Random rnd = new Random();
+
+            for (int i = 0; i < 5+5*No; i++)
+            {
+                AddSinglePossition(ref rnd, ref pos);
+            }
+            return pos;
+        }
+
+        private List<MemPossition> CreateNumberPossitions()
+        {
+            List<MemPossition> pos = new List<MemPossition>() { };
+            Random rnd = new Random();
+
+            for (int i = 0; i < 64; i++)
+            {
+                AddSinglePossition(ref rnd, ref pos);
             }
             return pos;
         }

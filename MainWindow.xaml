@@ -27,9 +27,14 @@
             </Grid.RowDefinitions>                        
         </Grid>
         <StackPanel>
-            <Button Content="Memory" HorizontalAlignment="Left"/>
-            <Button Content="Spostrzegawczość" HorizontalAlignment="Left"/>
-            <Button Content="Szukaj Cyfr" HorizontalAlignment="Left"/>
+            <Button Content="Memory" HorizontalAlignment="Left" 
+                    Click="Button_Click" />
+            <Button Content="Spostrzegawczość" 
+                    HorizontalAlignment="Left"
+                    Click="Button_Click_1"/>
+            <Button Content="Szukaj Cyfr" 
+                    HorizontalAlignment="Left"
+                    Click="Button_Click_2"/>
             
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Run Text="Poziom: "/>
