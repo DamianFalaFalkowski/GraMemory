@@ -150,13 +150,14 @@ namespace GraMemory
             Colors.Red,
             Colors.Yellow,
             Colors.Blue,
-            Colors.BlueViolet,
-            Colors.Chartreuse,
+            Colors.DarkOrange,
+            Colors.Lime,
             Colors.Cornsilk,
             Colors.DarkCyan,
-            Colors.DarkOrange,
+            Colors.BlueViolet,
             Colors.Fuchsia,
             Colors.Gold,
+            Colors.Pink,
             Colors.Indigo,
             Colors.Lavender,
             Colors.Khaki,
@@ -186,7 +187,7 @@ namespace GraMemory
             Colors.Sienna,
             Colors.RosyBrown,
             Colors.PowderBlue,
-            Colors.Pink,
+            
             Colors.PeachPuff,
             Colors.OldLace
         };

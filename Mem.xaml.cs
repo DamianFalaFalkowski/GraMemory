@@ -58,11 +58,9 @@ namespace GraMemory
             }
         }
 
-        Random rand = new Random();
+        
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            
-
             MemBody = sender as Grid;
             switch (GameHandler.GameType)
             {
@@ -70,15 +68,15 @@ namespace GraMemory
                     MemBody.Background = new SolidColorBrush(GameHandler.ColorsList[no]);
                     break;
                 case GameType.number:
-                    
+                    Random rand = new Random();
                     byte r = (byte)rand.Next(0, 256);
                     byte g = (byte)rand.Next(0, 256);
                     byte b = (byte)rand.Next(0, 256);
                     MemBody.Background = new SolidColorBrush(Color.FromArgb(255, r,g,b));
                     break;
                 case GameType.colors:
-                    int singl = 255 / (App.GamePage.VM.Level * 5 + 5);
-                    MemBody.Background = new SolidColorBrush(Color.FromArgb(255, 210, 57, Convert.ToByte(5+singl*no)));
+                    int singl = (255 / (App.GamePage.VM.Level * 3 + 4))-2;
+                    MemBody.Background = new SolidColorBrush(Color.FromArgb(255, 90,Convert.ToByte(singl*no),210));
                     break;
                 default:
                     break;
