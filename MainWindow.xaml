@@ -1,0 +1,34 @@
+﻿<Window xmlns:GraMemory="clr-namespace:GraMemory"  x:Class="GraMemory.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid Margin="5" Loaded="Grid_Loaded" SizeChanged="Grid_SizeChanged"
+              Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>                        
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Run Text="Poziom: "/>
+                <Run />
+        </TextBlock>
+    </Grid>
+</Window>

@@ -1,0 +1,17 @@
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\bin\Debug\GraMemory.exe.config
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\bin\Debug\GraMemory.exe
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\bin\Debug\GraMemory.pdb
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\GraMemory.csprojResolveAssemblyReference.cache
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\MainWindow.baml
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\MainWindow.g.cs
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\App.g.cs
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\GraMemory_MarkupCompile.cache
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\GraMemory.g.resources
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\GraMemory.Properties.Resources.resources
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\GraMemory.csproj.GenerateResource.Cache
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\GraMemory.exe
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\GraMemory.pdb
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\Mem.baml
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\Mem.g.cs
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\GeneratedInternalTypeHelper.g.cs
+c:\users\damian\documents\visual studio 2013\Projects\GraMemory\GraMemory\obj\Debug\GraMemory_MarkupCompile.lref
