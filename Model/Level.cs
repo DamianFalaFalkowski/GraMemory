@@ -56,7 +56,8 @@ namespace GraMemory.Model
             List<MemPossition> pos = new List<MemPossition>() { };
             Random rnd = new Random();
 
-            for (int i = 0; i < 3+4*No; i++)
+            //for (int i = 0; i < 32; i++)
+            for (int i = 0; i < 3+4*No; i++)           
             {
                 AddSinglePossition(ref rnd, ref pos);
             }

@@ -75,8 +75,10 @@ namespace GraMemory
                     MemBody.Background = new SolidColorBrush(Color.FromArgb(255, r,g,b));
                     break;
                 case GameType.colors:
+                    //int singl = (255 / (32))-5;
                     int singl = (255 / (App.GamePage.VM.Level * 3 + 4))-2;
                     MemBody.Background = new SolidColorBrush(Color.FromArgb(255, 90,Convert.ToByte(singl*no),210));
+                    //MemBody.Background = new SolidColorBrush(Color.FromArgb(255, Convert.ToByte(singl * no), Convert.ToByte(singl * no), Convert.ToByte(singl * no)));
                     break;
                 default:
                     break;

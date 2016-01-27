@@ -136,7 +136,10 @@ namespace GraMemory
             }
             else
             {
-                App.GamePage.VM.timer.Stop();
+                if (GameHandler.GameType == GameType.number)
+                {
+                    App.GamePage.VM.timer.Stop();
+                }
                 MessageBox.Show("Koniec Gry");
                           
             }
