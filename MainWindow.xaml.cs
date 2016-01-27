@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GraMemory.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,15 @@ namespace GraMemory
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        
+    {        
+        public GamePageViewModel VM { get; set; }
 
         public MainWindow()
         {
-            InitializeComponent();      
+            App.GamePage = this;
+            this.DataContext = new GamePageViewModel();
+            VM = this.DataContext as GamePageViewModel;
+            InitializeComponent();            
         }
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
@@ -39,7 +43,7 @@ namespace GraMemory
             {
                 send.Height = send.ActualWidth;
             }
-            await GameHandler.StartGame();
+            await GameHandler.StartGame(1);
 
             //Mem mem = new Mem();
             //MainGrid.Children.Add(mem);

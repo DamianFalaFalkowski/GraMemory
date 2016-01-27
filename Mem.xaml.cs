@@ -21,6 +21,8 @@ namespace GraMemory
     /// </summary>
     public partial class Mem : UserControl
     {
+        private int no = -1;
+
         public MemPossition Possition { get; set; }
 
         public bool isActive;
@@ -31,31 +33,37 @@ namespace GraMemory
 
         private Grid MemBody;
 
-        public Mem(MemPossition possition)
-        {
+        public Mem(MemPossition possition,int no)
+        {           
+            InitializeComponent();
+            this.no = no;
             Grid.SetRow(this, possition.memY);
             Grid.SetColumn(this, possition.memX);
             Possition = possition;
             isActive = false;
             isVisible = false;
-            InitializeComponent();
+            //Numer.Text = no.ToString();
         }
 
-        private void Color_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private async void Color_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {         
             if(isActive)
             {
-                GameHandler.CheckOrder(Possition);
                 this.isActive = false;
                 this.isVisible = false;
-                
+                await GameHandler.CheckOrder(Possition);            
             }
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            Random rand = new Random();
+            byte r = (byte)rand.Next(0, 256);
+            byte g = (byte)rand.Next(0, 256);
+            byte b = (byte)rand.Next(0, 256);
+
             MemBody = sender as Grid;
-            MemBody.Background = new SolidColorBrush(GameHandler.MemsColor);
+            MemBody.Background = new SolidColorBrush(GameHandler.ColorsList[no]);
         }
     }
 }

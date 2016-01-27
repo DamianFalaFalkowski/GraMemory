@@ -17,6 +17,7 @@ namespace GraMemory.Model
         // initializu poziom
         public Level(int numer)
         {
+            App.GamePage.VM.Level = numer;
             No = numer;
             Possitions = CreatePossitions();
         }
@@ -37,8 +38,8 @@ namespace GraMemory.Model
         // referencyjnie dodaj pojedynczą pozycję
         private void AddSinglePossition(ref Random rnd, ref List<MemPossition> list)
         {
-            int x = rnd.Next(1, 9);
-            int y = rnd.Next(1, 9);
+            int x = rnd.Next(0, 8);
+            int y = rnd.Next(0, 8);
             MemPossition possition = new MemPossition(x, y);
             if (!DoPossitionsContainPossition(possition, ref list))
             {

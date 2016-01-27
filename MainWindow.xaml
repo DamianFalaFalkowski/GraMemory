@@ -1,7 +1,7 @@
 ﻿<Window xmlns:GraMemory="clr-namespace:GraMemory"  x:Class="GraMemory.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="700" Width="1050">
     <Grid>
         <Grid Margin="5" Loaded="Grid_Loaded" SizeChanged="Grid_SizeChanged"
               Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
@@ -26,9 +26,20 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>                        
         </Grid>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
+        <StackPanel>
+            <Button Content="Memory" HorizontalAlignment="Left"/>
+            <Button Content="Spostrzegawczość" HorizontalAlignment="Left"/>
+            <Button Content="Szukaj Cyfr" HorizontalAlignment="Left"/>
+            
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Run Text="Poziom: "/>
-                <Run />
-        </TextBlock>
+                <Run Text="{Binding Path=Level}"/>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Run Text="Punkty: "/>
+                <Run Text="{Binding Path=Points}"/>
+            </TextBlock>
+        </StackPanel>
+
     </Grid>
 </Window>
