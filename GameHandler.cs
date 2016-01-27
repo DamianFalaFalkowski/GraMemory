@@ -69,7 +69,7 @@ namespace GraMemory
             await ShowMems();
         }
 
-        public static void StartNumbersGame(int poziom)
+        public async static void StartNumbersGame(int poziom)
         {
             ActualLevel = new Level(poziom);
             MainGrid.Children.Clear();
@@ -79,7 +79,7 @@ namespace GraMemory
                 Mem mem = new Mem(item, i);
                 MainGrid.Children.Add(mem);
             }
-            ShowMemsInstantly();
+            await ShowMemsFast();
         }
 
         private async static Task ShowMems()
@@ -103,7 +103,7 @@ namespace GraMemory
             }
         }
 
-        private static void ShowMemsInstantly()
+        private async static Task ShowMemsFast()
         {
             foreach (var item in MainGrid.Children)
             {
@@ -111,6 +111,7 @@ namespace GraMemory
                 {
                     Mem mem = item as Mem;
                     mem.isVisible = true;
+                    await Task.Delay(50);
                    
                 }
             }
@@ -122,6 +123,7 @@ namespace GraMemory
                     mem.isActive = true;
                 }
             }
+            App.GamePage.VM.timer.Start();
         }
 
         public async static Task CheckOrder(MemPossition memPos)
@@ -133,15 +135,24 @@ namespace GraMemory
                 ActualMem++;              
             }
             else
-            {                
+            {
+                App.GamePage.VM.timer.Stop();
                 MessageBox.Show("Koniec Gry");
                           
             }
 
             if (ActualMem>=ActualLevel.Possitions.Count)
             {
+                
                 ActualMem = 0;
-                await StartMemoryGame((ActualLevel.No+1));
+                if (GameHandler.GameType!=GameType.number)
+                {
+                    await StartMemoryGame((ActualLevel.No + 1));
+                }
+                else
+                {
+                    App.GamePage.VM.timer.Stop();
+                }
             }
         }
 

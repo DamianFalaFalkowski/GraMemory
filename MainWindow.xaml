@@ -44,6 +44,10 @@
                 <Run Text="Punkty: "/>
                 <Run Text="{Binding Path=Points}"/>
             </TextBlock>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Run Text="Time: "/>
+                <Run Text="{Binding Path=Time}"/>
+            </TextBlock>
         </StackPanel>
 
     </Grid>
